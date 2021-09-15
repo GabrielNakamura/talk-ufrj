@@ -1,5 +1,5 @@
 ---
-title: "Com Quantas Métricas se Descreve Uma Comunidade"
+title: "Com Quantas Métricas se Descreve Uma Comunidade?"
 subtitle: "O uso da dimensionalidade na descrição da biodiversidade em ecologia de comunidades."
 params:
   event: "Seminários PPG Ecologia UFRJ"
