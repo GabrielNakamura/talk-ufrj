@@ -78,11 +78,15 @@ knitr::include_graphics("images/PhDKnowledge.001.jpg")
 
 ---
 
+# Graduação
+
 ```{r, out.width= '70%'}
 knitr::include_graphics("images/PhDKnowledge.002.jpg")
 ```
 
 ---
+
+# Graduação
 
 ```{r, out.width= '70%'}
 knitr::include_graphics("images/PhDKnowledge.003.jpg")
@@ -90,11 +94,15 @@ knitr::include_graphics("images/PhDKnowledge.003.jpg")
 
 ---
 
+# Mestrado
+
 ```{r, out.width= '70%'}
 knitr::include_graphics("images/PhDKnowledge.004.jpg")
 ```
 
 ---
+
+# Mestrado
 
 ```{r, out.width= '70%'}
 knitr::include_graphics("images/PhDKnowledge.005.jpg")
@@ -102,11 +110,15 @@ knitr::include_graphics("images/PhDKnowledge.005.jpg")
 
 ---
 
+# Doutorado
+
 ```{r, out.width= '70%'}
 knitr::include_graphics("images/PhDKnowledge.006.jpg")
 ```
 
 ---
+
+# Doutorado
 
 ```{r, out.width= '70%'}
 knitr::include_graphics("images/PhDKnowledge.008.jpg")
@@ -131,9 +143,19 @@ Gostar de Ecologia sem ter um grupo do `r emo::ji("heart")`
 
 Descrever padrões de biodiversidade em comunidades
 
-```{r, out.width= '100%'}
+```{r, out.width= '60%'}
 knitr::include_graphics("images/ecography_Revisiting.png")
 ```
+
+```{r, out.width= '60%'}
+knitr::include_graphics("images/ecology-beta-div.png")
+```
+
+.center[
+```{r, out.width= '40%'}
+knitr::include_graphics("images/Logo_FishPhyloMaker.png")
+```
+]
 
 ]
 ]
@@ -252,9 +274,6 @@ knitr::include_graphics("images/wilsey-IV.png")
 knitr::include_graphics("images/RGB.png")
 ```
 
-.left[
-.blue[Azul] é a cor mais `r emo::ji("hot")`
-] / .red[Vermelho] é mais `r emo::ji("hot")`
 ] 
 
 ]
@@ -272,13 +291,13 @@ knitr::include_graphics("images/map-IV-Austral.jpeg")
 --
 
 .pull-right[
-```{r echo=FALSE, out.width="70%"}
+```{r echo=FALSE, out.width="60%"}
 knitr::include_graphics("images/IVs-Res-Austral.jpeg")
 ```
 ]
 
 .center[
-*Dimensões Funcional e Filogenética como mais importantes para representar a diversidade*
+**Dimensões *Funcional* e *Filogenética* como mais importantes para representar a diversidade**
 ]
 
 ---
@@ -286,16 +305,21 @@ class: center, inverse, middle
 
 # Episódio II
 
-## A Vingança dos EEs (Evenness of Eigenvalues)
+## O EE contra-ataca (Evenness of Eigenvalues)
 
 ---
 
 # A proposta de Stevens e Tello (2014, 2019)
 
 .pull-left[
-```{r echo=FALSE, out.width="100%"}
+```{r echo=FALSE, out.width="80%"}
 knitr::include_graphics("images/Stevens-Tello-scheme.png")
 ```
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/Results-Stevens.png")
+```
+
 ]
 
 --
@@ -306,7 +330,17 @@ knitr::include_graphics("images/RGB2.png")
 ```
 ]
 
-**Dimensionalidade colapsada em um único valor que representa a equitabilidade entre os eixos: EE (Evenness of Eigenvalues)**
+--
+
+.center[
+.midle[
+
+- **Aborda a dimensionalidade através do grau de correlação de diferentes métricas**
+- **Dimensionalidade representada em um único valor: <span style="color:red">EE</span> (Evenness of Eigenvalues)**
+
+]
+]
+
 
 ---
 
@@ -314,7 +348,9 @@ class: center, inverse, middle
 
 # Episódio III
 
-## O Despertar da Dimensionalidade (EE + IV)
+## O (Re)Despertar da Dimensionalidade (EE + IV)
+
+### Em busca de uma visão unificadora da Dimensionalidade (EE + IV)
 
 ---
 # Conciliando IVs e EEs
@@ -364,13 +400,18 @@ knitr::include_graphics("images/redundancy.png")
 .center[
 .midle[
 
-```{r echo=FALSE, out.width="60%"}
+```{r echo=FALSE, out.width="50%"}
 knitr::include_graphics("images/framework-complete.png")
 ```
 
 ]
 ]
 
+--
+
+1- A abordagem integrativa possibilita maior compreensão da dimensionalidade?
+
+2- Ela realmente funciona?
 
 ---
 
@@ -384,22 +425,92 @@ knitr::include_app(url = "https://gabrielnakamura.shinyapps.io/Supp_matShiny/")
 
 # Testando o framework integrado - Validação das Simulações
 
-```{r echo=FALSE, out.width="50%"}
-knitr::include_graphics("images/resultados.png")
+.pull-left[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/framework-complete.png")
+```
+]
+
+.pull-right[
+- Cenário de  **poucas dimensões** e **semelhança na importância das métricas**
+- Cenário de **poucas dimensões** e **diferença na importância das métricas**
+- Cenário de **muitas dimensões** e **semelhança na importância das métricas**
+- Cenário de **muitas dimensões** e **diferença na importância das métricas**
+]
+
+---
+
+# Testando o framework integrado - Simulações
+
+```{r echo=FALSE, out.width="40%"}
+knitr::include_graphics("images/results-simulation.png")
 ```
 
 ---
 
-# Testando o framework integrado - Vida Real
+# Testando o framework integrado - Mundo Real
+
+```{r echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/empirical-test-dimensionality.png")
+```
 
 ---
 
+# Testando o framework integrado - Mundo Real
+
+
+```{r echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/Figure5_EEandIV.png")
+```
+
+--
+
+- Dimensões taxonômica e filogenética como complementares
+
+--
+
+- Métricas de riqueza e divergência filogenética (PSV) como mais importantes
+
+---
+
+# Com quantas métricas se descreve uma comunidade?
+
+.pull-left[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/conclusion-conceptual1.png")
+```
+
+]
+
+--
+
+.pull-right[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/conclusion-practical.png")
+```
+]
+
+---
 class: center, inverse, middle
 
 # Episódio IV
 
 ## A Ascenção Dimensionality (O que há por vir?)
 
+--
+
+- Modelos mecanísticos ligando dimensionalidade e processos macroecológicos e macroevolutivos
+
+- Pacote Dimensionality
+
+.center[
+.midle[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/featured-hex.png")
+```
+
+]
+]
 
 ---
 background-image: url(images/sidebar-listing.png)
