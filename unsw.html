@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Take A Sad Plot &amp; Make It Better</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alison Hill" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/my-theme.css" type="text/css" />
+    <link rel="stylesheet" href="css/my-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide, center, bottom
+
+
+# Take A Sad Plot &amp; Make It Better
+
+## A Case Study with R and ggplot2
+
+### Alison Hill &amp;#183; RStudio
+
+#### UNSW Psychology Colloquium &amp;#183; 2019-10-04
+
+---
+name: hello
+class: inverse, right, bottom
+
+
+&lt;img style="border-radius: 50%;" src="https://github.com/apreshill.png" width="150px"/&gt;
+
+# Find me at...
+
+[<i class="fab  fa-twitter "></i> @apreshill](http://twitter.com/apreshill)  
+[<i class="fab  fa-github "></i> @apreshill](http://github.com/apreshill)  
+[<i class="fas  fa-link "></i> alison.rbind.io](https://alison.rbind.io)  
+[<i class="fas  fa-paper-plane "></i> alison@rstudio.com](mailto:alison@rstudio.com)
+
+---
+background-image: url(images/aim-here.png)
+background-size: contain
+
+---
+background-image: url(images/feature-keepgoing-hi-rectangle.jpg)
+background-size: cover
+---
+class: inverse, middle, center
+
+# Autism prevalence 
+
+
+&lt;img src="images/number-with-autistic-spectrum-disorder.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[
+https://ourworldindata.org/neurodevelopmental-disorders
+]
+
+---
+class: inverse, middle, center
+
+# Autism prevalence 
+
+
+&lt;img src="images/nature-autism-rising.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+.footnote[[Nature](https://www.nature.com/articles/479022a)]
+---
+class: inverse, middle, center
+
+# Autism prevalence 
+
+
+&lt;img src="images/autism-speaks-2018-prevalence.jpg" width="50%" style="display: block; margin: auto;" /&gt;
+
+.footnote[[Autism Speaks](https://www.autismspeaks.org/science-news/cdc-increases-estimate-autisms-prevalence-15-percent-1-59-children)]
+---
+class: inverse, top, center
+
+# California: 1931 to 2014
+
+
+&lt;img src="https://media.springernature.com/lw785/springer-static/image/art%3A10.1007%2Fs10803-018-3670-2/MediaObjects/10803_2018_3670_Fig7_HTML.gif" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+.footnote[
+https://doi.org/10.1007/s10803-018-3670-2
+]
+
+---
+class: center, middle, inverse
+
+# `v1.ppt`
+
+--
+
+# 🎶 .fancy[Hey, Jude, don't make it bad...] 🎶
+
+---
+background-image: url("./images/version1.png")
+background-size: contain
+
+---
+
+# Blameless postmortem
+
+.pull-left[
+![](images/version1.png)
+]
+
+--
+
+.pull-right[
+- 😃 Pink &lt; green- always under-estimating.
+
+- 😏 More dots in the pink blob - more people are getting services, but...
+
+- 😬 The "true" prevalence (total number of dots) looks different. It is actually the same at both time points!
+
+- 😳 I actually like the dots! And I return to this later.
+]
+
+
+
+---
+class: center, inverse, middle
+
+&lt;img src="images/lightbulb-color.png" width="10%" style="display: block; margin: auto;" /&gt;
+
+
+--
+
+# What is the message?
+
+--
+
+Is there an autism epidemic? Based on the data available, we don't know!
+
+---
+class: center, inverse, middle
+
+&lt;img src="images/lightbulb-color.png" width="10%" style="display: block; margin: auto;" /&gt;
+
+--
+
+# What is the medium?
+
+--
+
+A book chapter, but also presentations like this one!
+
+---
+background-image: url(images/aim-here-v1.png)
+background-size: contain
+
+---
+class: center, middle, inverse
+
+# `v2.doc`
+
+--
+
+# 🎶 .fancy[Take a sad (plot) and make it better...] 🎶
+
+---
+class: center
+background-image: url("./images/version2.png")
+background-size: contain
+
+---
+class: center, middle, inverse
+
+![](images/beatles-face-palm.gif)
+
+---
+
+# Full-of-blame postmortem
+
+.pull-left[
+![](images/version2.png)
+]
+
+.pull-right[
+
+- 😡 Franken-plot
+
+- 🍬-coated pies
+]
+
+---
+background-image: url(images/aim-here-v2.png)
+background-size: contain
+
+---
+class: center, middle, inverse
+
+# `v3 &lt;- ggplot()`
+
+--
+
+# 🎶 .fancy[Then you'll begin to make it better...] 🎶
+
+
+---
+class: center, middle, inverse
+
+![](images/beatles-help.gif)
+
+---
+class: center, middle
+
+# Asking for help
+
+.pull-left[
+![](images/help-me-viz-logo.jpg)
+]
+
+.pull-right[
+Help Me Viz
+
+[https://policyviz.com/helpmeviz/](https://policyviz.com/helpmeviz/)
+
+*"A place to facilitate discussion, debate, and collaboration from the data visualization community"*
+]
+
+---
+class: center, middle, inverse
+
+![](images/help-me-newcat.png)
+
+
+---
+class: center
+background-image: url("./images/help-me-plea.png")
+background-size: auto
+
+---
+class: center
+background-image: url("./images/help-me-response.png")
+background-size: auto
+
+---
+class: center, inverse, middle
+
+&lt;img src="images/lightbulb-color.png" width="10%" style="display: block; margin: auto;" /&gt;
+
+--
+
+# I can use ggplot2!
+
+---
+
+
+
+```r
+set.seed(1000)
+asdpop_base &lt;- tibble::tibble(
+  time1 = sample(1:100, 100, replace = F), 
+  time2 = time1) %&gt;% 
+  tidyr::gather(x, y, time1:time2, factor_key = TRUE)  
+asdpop_base
+```
+
+```
+# A tibble: 200 x 2
+   x         y
+   &lt;fct&gt; &lt;int&gt;
+ 1 time1    33
+ 2 time1    76
+ 3 time1    12
+ 4 time1    68
+ 5 time1    50
+ 6 time1     7
+ 7 time1    70
+ 8 time1    55
+ 9 time1    20
+10 time1    24
+# … with 190 more rows
+```
+
+
+---
+
+
+```r
+asdpop &lt;- asdpop_base %&gt;% 
+  mutate(services = as.factor(case_when(
+    x == "time1" &amp; y &lt;= 30 ~ 1, 
+    x == "time1" &amp; y &gt; 30 ~ 0, 
+    x == "time2" &amp; y &lt;= 60 ~ 1, 
+    TRUE ~ 0
+    )))
+asdpop
+```
+
+```
+# A tibble: 200 x 3
+   x         y services
+   &lt;fct&gt; &lt;int&gt; &lt;fct&gt;   
+ 1 time1    33 0       
+ 2 time1    76 0       
+ 3 time1    12 1       
+ 4 time1    68 0       
+ 5 time1    50 0       
+ 6 time1     7 1       
+ 7 time1    70 0       
+ 8 time1    55 0       
+ 9 time1    20 1       
+10 time1    24 1       
+# … with 190 more rows
+```
+
+
+---
+background-image: url(images/Painter.png)
+background-size: contain
+background-position: right center
+
+.footnote[Art by [Desirée De Leon](http://desiree.rbind.io/), &lt;br&gt;[CC-BY-NC-ND](https://tinystats.github.io/teacups-giraffes-and-statistics/)]
+---
+class: center
+
+&lt;img src="figs/bar1-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: center
+
+
+
+&lt;img src="figs/bar2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: center
+
+&lt;img src="figs/bar3-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+class: center
+
+&lt;img src="figs/bar4-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+class: center
+
+
+&lt;img src="figs/bar5-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+class: center
+&lt;img src="figs/bar6-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: center
+
+&lt;img src="figs/bar7-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+class: center
+
+&lt;img src="figs/bar8-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+background-image: url(images/aim-here-v3.png)
+background-size: contain
+
+---
+class: center, bottom, inverse
+
+# `rep("better", 40)`
+
+--
+
+# 🎶 better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better, better...🎶
+
+
+---
+class: center, middle, inverse
+
+# Why I ❤️ ggplot2
+
+![](images/beatles-rotation.gif)
+
+---
+class: center
+
+
+&lt;img src="figs/dot1-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+background-image: url(images/ggplot2_masterpiece.png)
+background-size: contain
+background-position: right center
+
+.footnote[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+---
+
+&lt;img src="figs/dot1-2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+&lt;img src="figs/dot2-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: center
+
+&lt;img src="figs/dot3-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: center
+
+&lt;img src="figs/dot4-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: center
+
+&lt;img src="figs/dot5-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+exclude: TRUE
+
+&lt;img src="figs/unnamed-chunk-8-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+class: center
+
+&lt;img src="figs/dot6-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+class: center
+
+&lt;img src="figs/dot7-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+&lt;img src="figs/dot8-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="figs/waffle-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+background-image: url(images/gganimate_fireworks.png)
+background-size: contain
+background-position: right center
+
+.footnote[Artwork by [@allison_horst](https://twitter.com/allison_horst)]
+
+---
+
+
+```
+
+Frame 1 (1%)
+Frame 2 (2%)
+Frame 3 (3%)
+Frame 4 (4%)
+Frame 5 (5%)
+Frame 6 (6%)
+Frame 7 (7%)
+Frame 8 (8%)
+Frame 9 (9%)
+Frame 10 (10%)
+Frame 11 (11%)
+Frame 12 (12%)
+Frame 13 (13%)
+Frame 14 (14%)
+Frame 15 (15%)
+Frame 16 (16%)
+Frame 17 (17%)
+Frame 18 (18%)
+Frame 19 (19%)
+Frame 20 (20%)
+Frame 21 (21%)
+Frame 22 (22%)
+Frame 23 (23%)
+Frame 24 (24%)
+Frame 25 (25%)
+Frame 26 (26%)
+Frame 27 (27%)
+Frame 28 (28%)
+Frame 29 (29%)
+Frame 30 (30%)
+Frame 31 (31%)
+Frame 32 (32%)
+Frame 33 (33%)
+Frame 34 (34%)
+Frame 35 (35%)
+Frame 36 (36%)
+Frame 37 (37%)
+Frame 38 (38%)
+Frame 39 (39%)
+Frame 40 (40%)
+Frame 41 (41%)
+Frame 42 (42%)
+Frame 43 (43%)
+Frame 44 (44%)
+Frame 45 (45%)
+Frame 46 (46%)
+Frame 47 (47%)
+Frame 48 (48%)
+Frame 49 (49%)
+Frame 50 (50%)
+Frame 51 (51%)
+Frame 52 (52%)
+Frame 53 (53%)
+Frame 54 (54%)
+Frame 55 (55%)
+Frame 56 (56%)
+Frame 57 (57%)
+Frame 58 (58%)
+Frame 59 (59%)
+Frame 60 (60%)
+Frame 61 (61%)
+Frame 62 (62%)
+Frame 63 (63%)
+Frame 64 (64%)
+Frame 65 (65%)
+Frame 66 (66%)
+Frame 67 (67%)
+Frame 68 (68%)
+Frame 69 (69%)
+Frame 70 (70%)
+Frame 71 (71%)
+Frame 72 (72%)
+Frame 73 (73%)
+Frame 74 (74%)
+Frame 75 (75%)
+Frame 76 (76%)
+Frame 77 (77%)
+Frame 78 (78%)
+Frame 79 (79%)
+Frame 80 (80%)
+Frame 81 (81%)
+Frame 82 (82%)
+Frame 83 (83%)
+Frame 84 (84%)
+Frame 85 (85%)
+Frame 86 (86%)
+Frame 87 (87%)
+Frame 88 (88%)
+Frame 89 (89%)
+Frame 90 (90%)
+Frame 91 (91%)
+Frame 92 (92%)
+Frame 93 (93%)
+Frame 94 (94%)
+Frame 95 (95%)
+Frame 96 (96%)
+Frame 97 (97%)
+Frame 98 (98%)
+Frame 99 (99%)
+Frame 100 (100%)
+Finalizing encoding... done!
+```
+
+&lt;img src="figs/unnamed-chunk-9-1.gif" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+
+```
+
+Frame 1 (1%)
+Frame 2 (2%)
+Frame 3 (3%)
+Frame 4 (4%)
+Frame 5 (5%)
+Frame 6 (6%)
+Frame 7 (7%)
+Frame 8 (8%)
+Frame 9 (9%)
+Frame 10 (10%)
+Frame 11 (11%)
+Frame 12 (12%)
+Frame 13 (13%)
+Frame 14 (14%)
+Frame 15 (15%)
+Frame 16 (16%)
+Frame 17 (17%)
+Frame 18 (18%)
+Frame 19 (19%)
+Frame 20 (20%)
+Frame 21 (21%)
+Frame 22 (22%)
+Frame 23 (23%)
+Frame 24 (24%)
+Frame 25 (25%)
+Frame 26 (26%)
+Frame 27 (27%)
+Frame 28 (28%)
+Frame 29 (29%)
+Frame 30 (30%)
+Frame 31 (31%)
+Frame 32 (32%)
+Frame 33 (33%)
+Frame 34 (34%)
+Frame 35 (35%)
+Frame 36 (36%)
+Frame 37 (37%)
+Frame 38 (38%)
+Frame 39 (39%)
+Frame 40 (40%)
+Frame 41 (41%)
+Frame 42 (42%)
+Frame 43 (43%)
+Frame 44 (44%)
+Frame 45 (45%)
+Frame 46 (46%)
+Frame 47 (47%)
+Frame 48 (48%)
+Frame 49 (49%)
+Frame 50 (50%)
+Frame 51 (51%)
+Frame 52 (52%)
+Frame 53 (53%)
+Frame 54 (54%)
+Frame 55 (55%)
+Frame 56 (56%)
+Frame 57 (57%)
+Frame 58 (58%)
+Frame 59 (59%)
+Frame 60 (60%)
+Frame 61 (61%)
+Frame 62 (62%)
+Frame 63 (63%)
+Frame 64 (64%)
+Frame 65 (65%)
+Frame 66 (66%)
+Frame 67 (67%)
+Frame 68 (68%)
+Frame 69 (69%)
+Frame 70 (70%)
+Frame 71 (71%)
+Frame 72 (72%)
+Frame 73 (73%)
+Frame 74 (74%)
+Frame 75 (75%)
+Frame 76 (76%)
+Frame 77 (77%)
+Frame 78 (78%)
+Frame 79 (79%)
+Frame 80 (80%)
+Frame 81 (81%)
+Frame 82 (82%)
+Frame 83 (83%)
+Frame 84 (84%)
+Frame 85 (85%)
+Frame 86 (86%)
+Frame 87 (87%)
+Frame 88 (88%)
+Frame 89 (89%)
+Frame 90 (90%)
+Frame 91 (91%)
+Frame 92 (92%)
+Frame 93 (93%)
+Frame 94 (94%)
+Frame 95 (95%)
+Frame 96 (96%)
+Frame 97 (97%)
+Frame 98 (98%)
+Frame 99 (99%)
+Frame 100 (100%)
+Finalizing encoding... done!
+```
+
+&lt;img src="figs/unnamed-chunk-10-1.gif" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+background-image: url(images/rachel-martin-PnAc2UaeqII-unsplash.jpg)
+background-position: left
+background-size: contain
+class: center, middle, inverse
+
+.pull-right[
+
+## Thanks!
+
+Slide theme developed by [Desirée De Leon](http://desiree.rbind.io/).
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+
+This work is licensed under a Creative Commons Attribution- ShareAlike 4.0 International License. 
+
+To view a copy of this license, visit:
+
+https://creativecommons.org/licenses/by-sa/4.0/
+
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "dracula",
+"highlightLanguage": ["r", "yaml", "markdown"],
+"slideNumberFormat": "",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

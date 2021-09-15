@@ -1,0 +1,424 @@
+---
+title: "Com Quantas Métricas se Descreve Uma Comunidade"
+subtitle: "O uso da dimensionalidade na descrição da biodiversidade em ecologia de comunidades."
+params:
+  event: "Seminários PPG Ecologia UFRJ"
+  date: "2021-09-14"
+author: Gabriel Nakamura
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/my-theme.css", "css/my-fonts.css"]
+    seal: false 
+    lib_dir: libs
+    nature:
+      highlightStyle: dracula
+      highlightLanguage: ["r", "yaml", "markdown"]
+      slideNumberFormat: "" 
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+  comment = NA, dpi = 300, echo = FALSE,
+  fig.align = "center", out.width = "60%", cache = FALSE,
+  fig.path = "figs/")
+library(tidyverse)
+library(gganimate)
+ozcols <- wesanderson::wes_palette("FantasticFox1")[c(2:3)]
+```
+
+class: title-slide, center, bottom
+
+
+# `r rmarkdown::metadata$title`
+
+## `r rmarkdown::metadata$subtitle`
+
+### `r rmarkdown::metadata$author` 
+
+### UFC (Professor substituto) &#183; UFRGS (Posdoc)
+
+#### `r params$event` &#183; `r params$date`
+
+---
+
+name: hello
+class: inverse, right, bottom
+
+
+<img style="border-radius: 70%;" src="https://raw.githubusercontent.com/GabrielNakamura/talks/master/images/avatar.png" width="150px"/>
+
+# Você pode me encontrar em...
+
+[`r icon::fa("twitter")` @gabrielnakamur4](http://twitter.com/gabrielnakamur4)  
+[`r icon::fa("github")` @GabrielNakamura](http://github.com/GabrielNakamura)  
+[`r icon::fa("link")` gabrielnakamura.netlify.app](https://gabrielnakamura.netlify.app)  
+[`r icon::fa("paper-plane")` gabriel.nakamura.souza@gmail.com](mailto:gabriel.nakamura.souza@gmail.com)
+
+---
+class: inverse, middle, center
+
+# Quem sou eu
+
+```{r, out.width= '30%'}
+knitr::include_graphics("images/thisIsBird.jpeg")
+```
+
+---
+
+# Um pouco do caminho
+
+```{r, out.width= '70%'}
+knitr::include_graphics("images/PhDKnowledge.001.jpg")
+```
+
+---
+
+```{r, out.width= '70%'}
+knitr::include_graphics("images/PhDKnowledge.002.jpg")
+```
+
+---
+
+```{r, out.width= '70%'}
+knitr::include_graphics("images/PhDKnowledge.003.jpg")
+```
+
+---
+
+```{r, out.width= '70%'}
+knitr::include_graphics("images/PhDKnowledge.004.jpg")
+```
+
+---
+
+```{r, out.width= '70%'}
+knitr::include_graphics("images/PhDKnowledge.005.jpg")
+```
+
+---
+
+```{r, out.width= '70%'}
+knitr::include_graphics("images/PhDKnowledge.006.jpg")
+```
+
+---
+
+```{r, out.width= '70%'}
+knitr::include_graphics("images/PhDKnowledge.008.jpg")
+```
+
+---
+
+# Minha pequena contribuição 
+
+.pull-left[
+```{r, out.width= '90%'}
+knitr::include_graphics("images/PhDKnowledge.010.jpg")
+```
+]
+
+--
+.pull-right[
+.center[
+.midle[
+
+Gostar de Ecologia sem ter um grupo do `r emo::ji("heart")`
+
+Descrever padrões de biodiversidade em comunidades
+
+```{r, out.width= '100%'}
+knitr::include_graphics("images/ecography_Revisiting.png")
+```
+
+]
+]
+]
+
+---
+class:middle, center
+
+# Era uma vez, em 2012...
+
+## Uma dissertação para ser feita
+
+--
+
+## Um conjunto de dados de comunidades de peixes
+
+--
+
+## **Uma tentativa de responder uma questão**
+
+---
+
+class: inverse, middle, center
+
+# O que é biodiversidade?
+
+```{r echo=FALSE, out.width="10%"}
+knitr::include_graphics("images/lightbulb-color.png")
+```
+
+---
+
+class: middle, inverse, center
+
+# Começando pelo fim
+
+## A trajetória Star Wars de investigação
+
+![](images/darth-vader-star-wars.gif)
+
+
+---
+class: inverse, middle, center
+
+# Episódio I 
+
+## O Ataque das Métricas
+
+---
+
+# Qual métrica é mais importante?
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/elephant-blindman.jpeg")
+```
+
+---
+
+# A visão de [Ricotta (2005)](https://link.springer.com/article/10.1007/s10441-005-7001-6) `r emo::ji("cheese")`
+
+.pull-left[
+
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/ricotta.jpeg")
+```
+
+]
+
+--
+
+.pull-right[
+.center[
+.midle[
+
+
+*"…biodiversity may be defined simply as a set of **multivariate summary statistics for quantifying different characteristics of community structure**"*
+
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/matrixM.png")
+```
+
+
+]
+]
+]
+
+---
+
+# Calculando a Contribuição das métricas (IVs)
+
+.pull-left[
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/IV-calculation.png")
+```
+
+.left[
+Extensão da proposta de [Wilsey et al 2005](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/04-0394)
+
+```{r echo=FALSE, out.width="20%"}
+knitr::include_graphics("images/wilsey-IV.png")
+```
+
+]
+
+]
+
+
+--
+
+.pull-right[
+
+.center[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/RGB.png")
+```
+
+.left[
+.blue[Azul] é a cor mais `r emo::ji("hot")`
+] / .red[Vermelho] é mais `r emo::ji("hot")`
+] 
+
+]
+
+---
+
+# Aplicando os IVs para comunidades de `r emo::ji("fish")`
+
+.pull-left[
+```{r echo=FALSE, out.width="90%"}
+knitr::include_graphics("images/map-IV-Austral.jpeg")
+```
+]
+
+--
+
+.pull-right[
+```{r echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/IVs-Res-Austral.jpeg")
+```
+]
+
+.center[
+*Dimensões Funcional e Filogenética como mais importantes para representar a diversidade*
+]
+
+---
+class: center, inverse, middle
+
+# Episódio II
+
+## A Vingança dos EEs (Evenness of Eigenvalues)
+
+---
+
+# A proposta de Stevens e Tello (2014, 2019)
+
+.pull-left[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/Stevens-Tello-scheme.png")
+```
+]
+
+--
+
+.pull-right[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/RGB2.png")
+```
+]
+
+**Dimensionalidade colapsada em um único valor que representa a equitabilidade entre os eixos: EE (Evenness of Eigenvalues)**
+
+---
+
+class: center, inverse, middle
+
+# Episódio III
+
+## O Despertar da Dimensionalidade (EE + IV)
+
+---
+# Conciliando IVs e EEs
+
+## Dois métodos, uma só história
+
+.center[
+.midle[
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/reconcilingIV-EE.png")
+```
+]
+]
+
+---
+
+# EE nos conta sobre a complementariedade e IV sobre redundância
+
+.pull-left[
+## Complementariedade
+.center[
+.midle[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/complementarity.png")
+```
+]
+]
+]
+
+--
+
+.pull-right[
+## Redundância
+.center[
+.midle[
+```{r echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/redundancy.png")
+```
+]
+]
+]
+
+---
+
+# O framework integrado
+
+.center[
+.midle[
+
+```{r echo=FALSE, out.width="60%"}
+knitr::include_graphics("images/framework-complete.png")
+```
+
+]
+]
+
+
+---
+
+# Testando o framework integrado - Criando comunidades
+
+```{r echo=FALSE, out.width="100%"}
+knitr::include_app(url = "https://gabrielnakamura.shinyapps.io/Supp_matShiny/")
+```
+
+---
+
+# Testando o framework integrado - Validação das Simulações
+
+```{r echo=FALSE, out.width="50%"}
+knitr::include_graphics("images/resultados.png")
+```
+
+---
+
+# Testando o framework integrado - Vida Real
+
+---
+
+class: center, inverse, middle
+
+# Episódio IV
+
+## A Ascenção Dimensionality (O que há por vir?)
+
+
+---
+background-image: url(images/sidebar-listing.png)
+background-position: left
+background-size: contain
+class: center, middle, inverse
+
+.pull-right[
+
+<img style="border-radius: 70%;" src="https://publons.com/media/thumbs/academic/photos/4a4ea660b3164621b1cc2a94d5c73634.jpg.200x200_q95_crop_detail_upscale.jpg" width="150px"/> <img style="border-radius: 70%;" src="https://www.ufrgs.br/nerf/images/equipe/larissa.jpg" width="100px"/>
+
+
+## Colaboradores
+
+Tema dos slides desenvolvido por [Desirée De Leon](http://desiree.rbind.io/).
+
+Slides criados através do pacote [**xaringan**](https://github.com/yihui/xaringan).
+
+Com o chakra a partir de [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), e [R Markdown](https://rmarkdown.rstudio.com).
+
+]
+

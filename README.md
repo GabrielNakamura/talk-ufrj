@@ -1,2 +1,1 @@
-# talk-ufrj
-My talk to UFRJ Ecology Graduate Program 
+https://alison.netlify.com/uo-sad-plot-better/#1
