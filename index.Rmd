@@ -50,7 +50,7 @@ name: hello
 class: inverse, right, bottom
 
 
-<img style="border-radius: 70%;" src="https://raw.githubusercontent.com/GabrielNakamura/talks/master/images/avatar.png" width="150px"/>
+<img style="border-radius: 70%;" src="https://raw.githubusercontent.com/GabrielNakamura/talk-ufrj/master/images/avatar.png" width="150px"/>
 
 # Você pode me encontrar em...
 
