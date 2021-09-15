@@ -415,14 +415,6 @@ knitr::include_graphics("images/framework-complete.png")
 
 ---
 
-# Testando o framework integrado - Criando comunidades
-
-```{r echo=FALSE, out.width="100%"}
-knitr::include_app(url = "https://gabrielnakamura.shinyapps.io/Supp_matShiny/")
-```
-
----
-
 # Testando o framework integrado - Validação das Simulações
 
 .pull-left[
@@ -440,11 +432,34 @@ knitr::include_graphics("images/framework-complete.png")
 
 ---
 
-# Testando o framework integrado - Simulações
+# Testando o framework integrado - Criando comunidades
 
-```{r echo=FALSE, out.width="40%"}
+```{r echo=FALSE, out.width="100%"}
+knitr::include_app(url = "https://gabrielnakamura.shinyapps.io/Supp_matShiny/")
+```
+
+---
+
+# Testando o framework integrado - Evidências teóricas
+.pull-left[
+```{r echo=FALSE, out.width="100%"}
 knitr::include_graphics("images/results-simulation.png")
 ```
+]
+
+--
+
+.pull-right[
+.center[
+.midle[
+- Baixos EE nos cenários de baixa complementariedade (alta correlação)
+
+- Altos EE nos cenários de alta complementariedade (baixa correlação)
+
+- IVs respondendo a variação na importância das métricas
+]
+]
+]
 
 ---
 
@@ -505,7 +520,7 @@ class: center, inverse, middle
 
 .center[
 .midle[
-```{r echo=FALSE, out.width="100%"}
+```{r echo=FALSE, out.width="20%"}
 knitr::include_graphics("images/featured-hex.png")
 ```
 
